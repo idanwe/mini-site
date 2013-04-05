@@ -13,31 +13,28 @@ body {
 }
 
 #contact-container {
-  height: 100px;
-  width: 600px;
+  height: 14%;
+  width: 66%;
 
   position: absolute;
   bottom: 5%;
-  right: 6%;
+  right: 4%;
 
   font-family: Arial;
 }
 #contact-header {
-  width: 100%;
-  height: 27px;
+  height: 30%;
 
   background-color: rgb(1, 72, 102);
   color: white;
 
-  margin-top: 1px;
   margin-bottom: 3px;
 
   text-align: center;
 }
 #contact-header span {
   display: inline-block;
-  margin-top: 4px;
-  font-size: 16px;
+  margin-top: 5px;
 }
 
 #contact-body {
@@ -46,7 +43,7 @@ body {
   background-color: rgb(174, 201, 209);
   color: rgb(1, 72, 100);
 
-  margin-bottom: 1px;
+  text-align: center
 }
 
 #success-messages {
@@ -57,17 +54,15 @@ body {
 
 #contact-body form {
   padding-top: 13px;
-  font-size: 16px;
-  padding-right: 2px;
 }
 
 input {
   height: 20px;
-  width: 100px; 
+  width: 16%; 
 }
 
 .data {
-  margin-left: 4px; 
+  margin-left: 1%; 
 }
 
 .input-error {
@@ -81,7 +76,7 @@ input {
   color: white;
 
   height: 26px;
-  width: 65px;
+  width: 11%;
 }
 
 .require {
