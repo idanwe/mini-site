@@ -48,19 +48,19 @@ body {
   color: rgb(1, 72, 100);
 
   margin-bottom: 1px;
-
-  text-align: center;
 }
 
 #success-messages {
   padding-top: 13px;
   font-size: 16px;
+  text-align: center
 }
 
 #contact-body form {
   width: 100%;
   padding-top: 13px;
   font-size: 16px;
+  padding-right: 4px;
 }
 
 input {
