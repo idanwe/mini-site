@@ -10,7 +10,7 @@
     "express": "3.x",
     "express-validator": "0.3.x",
     "jade": "0.28.x",
-    "nodemailer": "0.1.x"
+    "nodemailer": "0.4.x"
   },
 
   "engines": {
