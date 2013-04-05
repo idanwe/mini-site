@@ -1,0 +1,38 @@
+!!!
+
+html(dir="rtl")
+  head
+    title iClinic
+    link(rel='stylesheet', href='/index.css')
+     
+  body
+    #container
+      #header
+        img(src="/new-images/header.png")
+      #main
+        img(src="/new-images/minisite.png")
+      #contact-container
+        #contact-header
+          span לתאום בדיקת התאמה ללא התחייבות, מלאו את פרטיכם ונשוב אליכם בהקדם:
+
+        #contact-body
+          if success
+            div#success-messages <b>תודה #{name}</b>, פנייתך התקבלה ניצור עימך קשר בהקדם.
+          else
+            form(method="post", action="/")
+              - var nameError = (errors.name ? 'input-error' : '')
+              - var phoneError = (errors.phone ? 'input-error' : '')
+              - var emailError = (errors.email ? 'input-error' : '')
+              label(for="name")
+                |שם ומשפחה:
+                span.require * 
+              input#name(type='text', name='name', class=nameError, value=data.name)
+              label(for='phone')
+                |טלפון:
+                span.require * 
+              input#phone(type='text', name='phone', class=phoneError, dir='ltr', value=data.phone)
+              label(for='email')
+                |אימייל:
+                span.require * 
+              input#email(type='email', name='email', class=emailError, dir='ltr', value=data.email)
+              input#submit(type='submit', name='submit', value='שלח')
