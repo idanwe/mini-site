@@ -22,7 +22,7 @@ html(dir="rtl")
             form(method="post", action="/")
               - var nameError = (errors.name ? 'input-error data' : 'data')
               - var phoneError = (errors.phone ? 'input-error data' : 'data')
-              - var emailError = (errors.email ? 'input-error data' : 'data')
+              - var emailError = (errors.email ? 'input-error' : '')
               label(for="name")
                 |שם ומשפחה:
                 span.require * 
