@@ -41,7 +41,6 @@ body {
 }
 
 #contact-body {
-  width: 100%;
   height: 55px;
 
   background-color: rgb(174, 201, 209);
@@ -59,13 +58,16 @@ body {
 #contact-body form {
   padding-top: 13px;
   font-size: 16px;
-  padding-right: 4px;
+  padding-right: 2px;
 }
 
 input {
   height: 20px;
   width: 100px; 
-  margin-left: 4px;
+}
+
+.data {
+  margin-left: 4px; 
 }
 
 .input-error {

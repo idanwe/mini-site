@@ -20,9 +20,9 @@ html(dir="rtl")
             div#success-messages <b>תודה #{name}</b>, פנייתך התקבלה ניצור עימך קשר בהקדם.
           else
             form(method="post", action="/")
-              - var nameError = (errors.name ? 'input-error' : '')
-              - var phoneError = (errors.phone ? 'input-error' : '')
-              - var emailError = (errors.email ? 'input-error' : '')
+              - var nameError = (errors.name ? 'input-error data' : 'data')
+              - var phoneError = (errors.phone ? 'input-error data' : 'data')
+              - var emailError = (errors.email ? 'input-error data' : 'data')
               label(for="name")
                 |שם ומשפחה:
                 span.require * 
