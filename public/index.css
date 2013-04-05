@@ -7,7 +7,7 @@ body {
   margin-left: auto;
   width: 900px;
   height: 670px;
-  padding: 20px;
+  padding: 0px 20px 20px 20px;
 
   position: relative;
 }
