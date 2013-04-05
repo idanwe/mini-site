@@ -3,12 +3,14 @@
   "description": "new contant us request",
   "version": "0.0.1",
   "private": true,
+ 
   "dependencies": {
-    "coffee-script": "1.x",
-    "email-templates": "0.x",
+    "coffee-script": "1.6.x",
+    "email-templates": "0.0.x",
     "express": "3.x",
-    "express-validator": "0.x",
-    "jade": "0.x",
-    "nodemailer": "0.x"
+    "express-validator": "0.3.x",
+    "jade": "0.28.x",
+    "nodemailer": "0.1.x"
   }
+
 }
