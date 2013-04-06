@@ -5,6 +5,8 @@ util = require 'util'
 expressValidator = require 'express-validator'
 jade = require 'jade'
 
+visitors_counter = 0
+contacts_counter = 0
 
 app = express()
 
@@ -30,10 +32,16 @@ transport = nodemailer.createTransport("SMTP",
 )
 
 app.get '/', (req, res) ->
-  filePath = '.' + req.url
-  if filePath == './'
-    filePath = 'index'
+  url = req.url
+  filePath = url.substring(0, url.indexOf('?')) || '/'
+  
+  console.log 'filePath = ' + filePath
+  filePath = 'index' if filePath == '/'
+  visitors_counter++
+
   res.render filePath, { success: false , errors: false, data: {}}
+  console.log "get: visitors = " + visitors_counter
+  console.log "get: contacts_counter = " + contacts_counter
 
 app.post '/', (req, res) ->
   console.log 'start post requset '
@@ -60,11 +68,14 @@ app.post '/', (req, res) ->
     res.render 'index', { success: false, errors: errors , data: data}
   else
     sendMail(name, phone, email)
+    contacts_counter++
     res.render 'index', { success: true, errors: false, name: name}
 
   console.log name
   console.log phone
   console.log email
+  console.log "post: visitors = " + visitors_counter
+  console.log "post: contacts_counter = " + contacts_counter
 
 
 
