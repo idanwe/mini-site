@@ -13,7 +13,8 @@ html(dir="rtl")
         img(src="/images/minisite.png")
       #contact-container
         #contact-header
-          span לתאום בדיקת התאמה ללא התחייבות, מלאו את פרטיכם ונשוב אליכם בהקדם:
+          if !success
+            span לתאום בדיקת התאמה ללא התחייבות, מלאו את פרטיכם ונשוב אליכם בהקדם:
 
         #contact-body
           if success
