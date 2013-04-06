@@ -5,8 +5,6 @@ util = require 'util'
 expressValidator = require 'express-validator'
 jade = require 'jade'
 
-visitors_counter = 0
-contacts_counter = 0
 
 app = express()
 
@@ -31,21 +29,24 @@ transport = nodemailer.createTransport("SMTP",
     pass: "Reminder1" 
 )
 
-app.get '/', (req, res) ->
-  url = req.url
-  filePath = url.substring(0, url.indexOf('?')) || '/'
-  
-  console.log 'filePath = ' + filePath
-  filePath = 'index' if filePath == '/'
-  visitors_counter++
-
-  res.render filePath, { success: false , errors: false, data: {}}
-  console.log "get: visitors = " + visitors_counter
-  console.log "get: contacts_counter = " + contacts_counter
+app.get '/', (req, res) ->  
+  res.render 'index', { success: false , errors: false, data: {}}
 
 app.post '/', (req, res) ->
   console.log 'start post requset '
 
+  validateData req
+  errors = req.validationErrors true
+  console.log "ERRPRS == " + errors
+  data = generateData req.body, errors
+  if errors
+    res.render 'index', { success: false, errors: errors , data: data}
+  else
+    console.log 'SUCCESS DATA == ' + data
+    sendMail data
+    res.render 'index', { success: true, errors: false, name: data.name}
+
+validateData = (req) ->
   req.assert('name', 'required').notEmpty()
   req.assert('name', '2 to 30 characters required').len(2, 30)
   req.assert('phone', 'required').notEmpty()
@@ -53,38 +54,19 @@ app.post '/', (req, res) ->
   req.assert('email', 'required').notEmpty()
   req.assert('email', 'valid email required').isEmail()
 
-  errors = req.validationErrors true
-  name = req.body.name
-  phone = req.body.phone
-  email = req.body.email
-  
-  if errors
-    data = {}
-    data['name'] = name unless errors.name
-    data['phone'] = phone unless errors.phone
-    data['email'] = email unless errors.email
+generateData = (body, errors = {}) ->
+  data = {}
+  data['name'] = body.name unless errors.name
+  data['phone'] = body.phone unless errors.phone
+  data['email'] = body.email unless errors.email
+  data
 
-    console.log errors
-    res.render 'index', { success: false, errors: errors , data: data}
-  else
-    sendMail(name, phone, email)
-    contacts_counter++
-    res.render 'index', { success: true, errors: false, name: name}
-
-  console.log name
-  console.log phone
-  console.log email
-  console.log "post: visitors = " + visitors_counter
-  console.log "post: contacts_counter = " + contacts_counter
-
-
-
-sendMail = (name, phone, email) ->
+sendMail = (data) ->
   html = 
     "<div dir='rtl'>
-      שם: #{name} <br>
-      טלפון: #{phone} <br>
-      אימייל: #{email} <br>
+      שם: #{data.name} <br>
+      טלפון: #{data.phone} <br>
+      אימייל: #{data.email} <br>
     </div>"
 
   mailOptions = 
@@ -100,8 +82,6 @@ sendMail = (name, phone, email) ->
       console.log "Message sent: " + res.message
     transport.close()
 
-
-  
 
   
 
