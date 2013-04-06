@@ -33,16 +33,12 @@ app.get '/', (req, res) ->
   res.render 'index', { success: false , errors: false, data: {}}
 
 app.post '/', (req, res) ->
-  console.log 'start post requset '
-
   validateData req
   errors = req.validationErrors true
-  console.log "ERRPRS == " + errors
-  data = generateData req.body, errors
+  data = generateData(req.body, errors)
   if errors
     res.render 'index', { success: false, errors: errors , data: data}
   else
-    console.log 'SUCCESS DATA == ' + data
     sendMail data
     res.render 'index', { success: true, errors: false, name: data.name}
 
