@@ -35,12 +35,12 @@ app.get '/', (req, res) ->
 app.post '/', (req, res) ->
   validateData req
   errors = req.validationErrors true
-  data = generateData(req.body, errors)
+  validData = composeValidData(req.body, errors)
   if errors
-    res.render 'index', { success: false, errors: errors , data: data}
+    res.render 'index', { success: false, errors: errors , data: validData}
   else
-    sendMail data
-    res.render 'index', { success: true, errors: false, name: data.name}
+    sendMail validData
+    res.render 'index', { success: true, errors: false, name: validData.name}
 
 validateData = (req) ->
   req.assert('name', 'required').notEmpty()
@@ -50,7 +50,7 @@ validateData = (req) ->
   req.assert('email', 'required').notEmpty()
   req.assert('email', 'valid email required').isEmail()
 
-generateData = (body, errors = {}) ->
+composeValidData = (body, errors = {}) ->
   data = {}
   data['name'] = body.name unless errors.name
   data['phone'] = body.phone unless errors.phone
@@ -79,7 +79,47 @@ sendMail = (data) ->
     transport.close()
 
 
-  
+app.post '/zullerSearch', (req, res) ->
+  res.send zullerJSON
+app.get '/zullerSearch', (req, res) ->
+  res.send zullerJSON
+
+zullerJSON = 
+  "attractions": [ 
+    "bar":
+      "_id": "21931284150151458143"
+      "name": "Grega"
+      "logo": "url/gregaLogo"
+      "minAge": "20"
+      "address": 
+        "city": "Herzelia"
+        "street": "Harash"
+        "streetNumber": "1"
+      "date":
+        "day": "14"
+        "month": "4"
+        "year": "2013"
+      "weight": "1"
+      "phoneNumber":"034124141"
+      "music": ["main_stream", "rock", "israeli"]
+    ,
+    "club": 
+      "_id": "21931284150151458143"
+      "name": "Clara"
+      "logo": "url/claraLogo"
+      "minAge": "22"
+      "address":
+        "city": "Tel Aviv"
+        "street": "Kaufman"
+        "streetNumber": "1"
+      "date":
+        "day": "22"
+        "month": "4"
+        "year": "2013"
+      "weight":"2"
+      "music": ["main_stream", "house", "pop"]
+      "phoneNumber":"034124141"
+  ]
 
 
 # validateData = (name, phone, email) ->
