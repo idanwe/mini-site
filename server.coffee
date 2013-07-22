@@ -1,10 +1,9 @@
 express = require 'express'
 path = require 'path'
-nodemailer = require 'nodemailer'
-util = require 'util'
+# util = require 'util'
 expressValidator = require 'express-validator'
 jade = require 'jade'
-
+emailManager = require './email_manager'
 
 app = express()
 
@@ -12,8 +11,8 @@ app.configure ->
   app.set('views', __dirname + '/views')
   app.set('view engine', 'jade')
   app.set('port', process.env.PORT || 3000)
-  
-  app.use express.logger('dev') #  'default', 'short', 'tiny', 'dev' 
+
+  app.use express.logger('dev') #  'default', 'short', 'tiny', 'dev'
   app.use express.bodyParser()
   app.use expressValidator
   app.use app.router
@@ -22,14 +21,7 @@ app.configure ->
 app.listen app.get('port'), ->
   console.log 'server listening on ' + app.get('port')
 
-transport = nodemailer.createTransport("SMTP",
-  service: "Gmail"
-  auth:
-    user: "idanserver@gmail.com" 
-    pass: "Reminder1" 
-)
-
-app.get '/', (req, res) ->  
+app.get '/', (req, res) ->
   res.render 'index', { success: false , errors: false, data: {}}
 
 app.post '/', (req, res) ->
@@ -39,7 +31,7 @@ app.post '/', (req, res) ->
   if errors
     res.render 'index', { success: false, errors: errors , data: validData}
   else
-    sendMail validData
+    emailManager.sendEmail validData
     res.render 'index', { success: true, errors: false, name: validData.name}
 
 validateData = (req) ->
@@ -57,28 +49,6 @@ composeValidData = (body, errors = {}) ->
   data['email'] = body.email unless errors.email
   data
 
-sendMail = (data) ->
-  html = 
-    "<div dir='rtl'>
-      שם: #{data.name} <br>
-      טלפון: #{data.phone} <br>
-      אימייל: #{data.email} <br>
-    </div>"
-
-  mailOptions = 
-    from: "MultiFocal Ad <idanserver@gmail.com>"
-    to: "idanwe2@gmail.com " # lasik66@gmail.com
-    subject: "פניה חדשה מפרסומת של מולטיפוקל"
-    html: html
-   
-  transport.sendMail mailOptions, (error, res) -> 
-    if error
-      console.log error
-    else
-      console.log "Message sent: " + res.message
-    transport.close()
-
-
 # validateData = (name, phone, email) ->
 #   err = {}
 #   err.name = validateName name
@@ -91,7 +61,7 @@ sendMail = (data) ->
 #     false
 #   else
 #     true
-  
+
 # validatePhone = (phone) ->
 #   phone = phone.replace(/[^0-9]/g, '')
 #   if phone.length != 10 then false else true

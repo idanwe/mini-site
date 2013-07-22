@@ -4,7 +4,7 @@ html(dir="rtl")
   head
     title iClinic
     link(rel='stylesheet', href='/index.css')
-     
+
   body
     #container
       #header
@@ -26,14 +26,33 @@ html(dir="rtl")
               - var emailError = (errors.email ? 'input-error data' : 'data')
               label(for="name")
                 |שם ומשפחה:
-                span.require * 
+                span.require *
               input#name(type='text', name='name', class=nameError, dir='rtl', value=data.name)
               label(for='phone')
                 |טלפון:
-                span.require * 
+                span.require *
               input#phone(type='text', name='phone', class=phoneError, dir='ltr', value=data.phone)
               label(for='email')
                 |אימייל:
-                span.require * 
+                span.require *
               input#email(type='email', name='email', class=emailError, dir='ltr', value=data.email)
               input#submit(type='submit', name='submit', value='שלח')
+
+    //  קוד Google לתג שיווק מחדש */
+    // --------------------------------------------------
+    // אין לשייך תגי שיווק מחדש עם מידע המאפשר זיהוי אישי ואין להציב אותם בדפים הקשורים לקטגוריות רגישות. ראה מידע נוסף והוראות על התקנת התג ב: http://google.com/ads/remarketingsetup
+    // ----------------------------------------------------->
+    script(type="text/javascript")
+      /* <![CDATA[ */
+      - var google_conversion_id = 959220176;
+      - var google_custom_params = window.google_tag_params;
+      - var google_remarketing_only = true;
+      /* ]]> */
+
+    script(type="text/javascript", src="//www.googleadservices.com/pagead/conversion.js")
+
+    noscript
+      div(style="display:inline;")
+        img(height="1", width="1", style="border-style:none;", alt="", src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/959220176/?value=0&amp;guid=ON&amp;script=0")
+
+
