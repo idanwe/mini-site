@@ -38,21 +38,26 @@ html(dir="rtl")
               input#email(type='email', name='email', class=emailError, dir='ltr', value=data.email)
               input#submit(type='submit', name='submit', value='שלח')
 
-    //  קוד Google לתג שיווק מחדש
-    // --------------------------------------------------
-    // אין לשייך תגי שיווק מחדש עם מידע המאפשר זיהוי אישי ואין להציב אותם בדפים הקשורים לקטגוריות רגישות. ראה מידע נוסף והוראות על התקנת התג ב: http://google.com/ads/remarketingsetup
-    // ---------------------------------------------------
-    script(type="text/javascript")
+
+
+    //
+      Google Code for &#1502;&#1497; &#1513;&#1492;&#1497;&#1492;&#1489;&#1488;&#1514;&#1512;
+    //
+      Remarketing tags may not be associated with personally identifiable information or placed on pages
+      related to sensitive categories. For instructions on adding this tag and more information on
+      the above requirements, read the setup guide: google.com/ads/remarketingsetup
+    script(type='text/javascript')
       /* <![CDATA[ */
-      - var google_conversion_id = 959220176;
-      - var google_custom_params = window.google_tag_params;
-      - var google_remarketing_only = true;
+      var google_conversion_id = 959220176;
+      var google_conversion_label = "Rb5zCMCptgMQ0JOyyQM";
+      var google_custom_params = window.google_tag_params;
+      var google_remarketing_only = true;
       /* ]]> */
 
-    script(type="text/javascript", src="//www.googleadservices.com/pagead/conversion.js")
+    script(type='text/javascript', src='//www.googleadservices.com/pagead/conversion.js')
 
     noscript
-      div(style="display:inline;")
-        img(height="1", width="1", style="border-style:none;", alt="", src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/959220176/?value=0&amp;guid=ON&amp;script=0")
+      div(style='display: inline;')
+        img(height='1', width='1', style='border-style: none;', alt='', src='//googleads.g.doubleclick.net/pagead/viewthroughconversion/959220176/?value=0&label=Rb5zCMCptgMQ0JOyyQM&guid=ON&script=0')
 
 
