@@ -24,7 +24,7 @@ getMailOptions = (data, type) ->
 
   mailOptions =
     from: from + " <idanserver@gmail.com>"
-    to: "idanwe2@gmail.com" # "lasik66@gmail.com"
+    to: "lasik66@gmail.com"
     subject: subject
     html: html
 
