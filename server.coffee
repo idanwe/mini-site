@@ -23,14 +23,27 @@ app.listen app.get('port'), ->
   console.log 'server listening on ' + app.get('port')
 
 app.get '/', (req, res) ->
-  res.render 'index', { success: false , errors: false, data: {} }
+  res.render 'smart-iq/index', { postUrl: "/", success: false , errors: false, data: {} }
 
 app.post '/', (req, res) ->
   contactUsValidator.validateData req
   errors = req.validationErrors true
   validData = contactUsValidator.composeValidData(req.body, errors)
   if errors
-    res.render 'index', { success: false, errors: errors , data: validData }
+    res.render 'smart-iq/index', { postUrl: "/", success: false, errors: errors , data: validData }
   else
-    emailManager.sendEmail validData
-    res.render 'index', { success: true, errors: false, name: validData.name }
+    emailManager.sendEmail(validData, 'smart-iq')
+    res.render 'smart-iq/index', { postUrl: "/", success: true, errors: false, name: validData.name }
+
+app.get '/monovision', (req, res) ->
+  res.render 'monovision/index', { postUrl: "/monovision", success: false , errors: false, data: {} }
+
+app.post '/monovision', (req, res) ->
+  contactUsValidator.validateData req
+  errors = req.validationErrors true
+  validData = contactUsValidator.composeValidData(req.body, errors)
+  if errors
+    res.render 'monovision/index', { postUrl: "/monovision", success: false, errors: errors , data: validData }
+  else
+    emailManager.sendEmail(validData, 'monovision')
+    res.render 'monovision/index', { postUrl: "/monovision", success: true, errors: false, name: validData.name }

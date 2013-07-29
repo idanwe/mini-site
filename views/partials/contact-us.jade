@@ -1,0 +1,26 @@
+.contact-container
+  .contact-header
+    if !success
+      span לתאום בדיקת התאמה ללא התחייבות, מלאו את פרטיכם ונשוב אליכם בהקדם:
+
+  .contact-body
+    if success
+      div.success-messages <b>תודה #{name}</b>, פנייתך התקבלה ניצור עימך קשר בהקדם.
+    else
+      form(method="post", action=postUrl).form-inline
+        - var nameError = (errors.name ? 'input-error data' : 'data')
+        - var phoneError = (errors.phone ? 'input-error data' : 'data')
+        - var emailError = (errors.email ? 'input-error data' : 'data')
+        label(for="name").input-label
+          |שם מלא:
+          span.require *
+        input.input#name(type='text', name='name', class=nameError, dir='rtl', value=data.name)
+        label(for='phone').input-label
+          |טלפון:
+          span.require *
+        input.input#phone(type='text', name='phone', class=phoneError, dir='ltr', value=data.phone)
+        label(for='email').input-label
+          |אימייל:
+          span.require *
+        input.span3#email(type='email', name='email', class=emailError, dir='ltr', value=data.email)
+        input.submit(type='submit', name='submit', value='שלח')
