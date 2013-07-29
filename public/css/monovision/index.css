@@ -132,6 +132,20 @@ input {
   background-color: rgba(243, 251, 251, 0.3);
 }
 
+#phone-link {
+  width: 262px;
+  height: 120px;
+  /*background-color: rgba(255, 0, 0, 0.25);*/
+
+  position: absolute;
+  bottom: 0;
+  right: 268px;
+}
+
+#phone-link:hover {
+  background-color: rgba(243, 251, 251, 0.3);
+}
+
 #iclinic-link {
   width: 332px;
   height: 120px;
@@ -145,3 +159,4 @@ input {
 #iclinic-link:hover {
   background-color: rgba(243, 251, 251, 0.1);
 }
+
