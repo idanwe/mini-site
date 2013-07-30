@@ -1,0 +1,137 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'node', '/usr/local/bin/npm', 'install', 'prettyjson', '-g' ]
+2 info using npm@1.2.14
+3 info using node@v0.10.0
+4 verbose read json /usr/local/lib/package.json
+5 verbose read json /usr/local/lib/package.json
+6 verbose cache add [ 'prettyjson', null ]
+7 verbose cache add name=undefined spec="prettyjson" args=["prettyjson",null]
+8 verbose parsed url { protocol: null,
+8 verbose parsed url   slashes: null,
+8 verbose parsed url   auth: null,
+8 verbose parsed url   host: null,
+8 verbose parsed url   port: null,
+8 verbose parsed url   hostname: null,
+8 verbose parsed url   hash: null,
+8 verbose parsed url   search: null,
+8 verbose parsed url   query: null,
+8 verbose parsed url   pathname: 'prettyjson',
+8 verbose parsed url   path: 'prettyjson',
+8 verbose parsed url   href: 'prettyjson' }
+9 silly lockFile ef05f780-prettyjson prettyjson
+10 verbose lock prettyjson /Users/idanwe/.npm/ef05f780-prettyjson.lock
+11 silly lockFile ef05f780-prettyjson prettyjson
+12 silly lockFile ef05f780-prettyjson prettyjson
+13 verbose addNamed [ 'prettyjson', '' ]
+14 verbose addNamed [ null, '' ]
+15 silly lockFile b9451fb1-prettyjson prettyjson@
+16 verbose lock prettyjson@ /Users/idanwe/.npm/b9451fb1-prettyjson.lock
+17 silly addNameRange { name: 'prettyjson', range: '', hasData: false }
+18 verbose url raw prettyjson
+19 verbose url resolving [ 'https://registry.npmjs.org/', './prettyjson' ]
+20 verbose url resolved https://registry.npmjs.org/prettyjson
+21 info trying registry request attempt 1 at 21:21:45
+22 verbose etag "4NHE1DG6ZN9QWWZ2QSARRKU7B"
+23 http GET https://registry.npmjs.org/prettyjson
+24 http 304 https://registry.npmjs.org/prettyjson
+25 silly registry.get cb [ 304,
+25 silly registry.get   { server: 'CouchDB/1.3.0 (Erlang OTP/R15B03)',
+25 silly registry.get     etag: '"4NHE1DG6ZN9QWWZ2QSARRKU7B"',
+25 silly registry.get     date: 'Mon, 29 Jul 2013 18:21:46 GMT',
+25 silly registry.get     'content-length': '0' } ]
+26 verbose etag prettyjson from cache
+27 silly addNameRange number 2 { name: 'prettyjson', range: '', hasData: true }
+28 silly addNameRange versions [ 'prettyjson',
+28 silly addNameRange   [ '0.0.1',
+28 silly addNameRange     '0.1.0',
+28 silly addNameRange     '0.1.1',
+28 silly addNameRange     '0.1.2',
+28 silly addNameRange     '0.1.3',
+28 silly addNameRange     '0.1.4',
+28 silly addNameRange     '0.2.0',
+28 silly addNameRange     '0.2.1',
+28 silly addNameRange     '0.3.0',
+28 silly addNameRange     '0.3.1',
+28 silly addNameRange     '0.4.0',
+28 silly addNameRange     '0.5.0',
+28 silly addNameRange     '0.6.0',
+28 silly addNameRange     '0.7.0',
+28 silly addNameRange     '0.7.1',
+28 silly addNameRange     '0.8.0',
+28 silly addNameRange     '0.8.1' ] ]
+29 verbose addNamed [ 'prettyjson', '0.8.1' ]
+30 verbose addNamed [ '0.8.1', '0.8.1' ]
+31 silly lockFile 506fff96-prettyjson-0-8-1 prettyjson@0.8.1
+32 verbose lock prettyjson@0.8.1 /Users/idanwe/.npm/506fff96-prettyjson-0-8-1.lock
+33 verbose read json /Users/idanwe/.npm/prettyjson/0.8.1/package/package.json
+34 silly lockFile 506fff96-prettyjson-0-8-1 prettyjson@0.8.1
+35 silly lockFile 506fff96-prettyjson-0-8-1 prettyjson@0.8.1
+36 silly lockFile b9451fb1-prettyjson prettyjson@
+37 silly lockFile b9451fb1-prettyjson prettyjson@
+38 silly resolved [ { author:
+38 silly resolved      { name: 'Rafael de Oleza',
+38 silly resolved        email: 'rafeca@gmail.com',
+38 silly resolved        url: 'https://github.com/rafeca' },
+38 silly resolved     name: 'prettyjson',
+38 silly resolved     description: 'Package for formatting JSON data in a coloured YAML-style, perfect for CLI output',
+38 silly resolved     version: '0.8.1',
+38 silly resolved     homepage: 'http://rafeca.com/prettyjson',
+38 silly resolved     keywords: [ 'json', 'cli', 'formatting', 'colors' ],
+38 silly resolved     repository: { type: 'git', url: 'https://github.com/rafeca/prettyjson.git' },
+38 silly resolved     main: './lib/prettyjson',
+38 silly resolved     scripts: { test: './node_modules/mocha/bin/mocha --reporter spec' },
+38 silly resolved     bin: { prettyjson: './bin/prettyjson' },
+38 silly resolved     engines: { node: '>= 0.6.0 < 0.11.0' },
+38 silly resolved     dependencies: { colors: '0.6.0-1' },
+38 silly resolved     devDependencies:
+38 silly resolved      { releasetools: '0.4.0',
+38 silly resolved        step: '0.0.5',
+38 silly resolved        mocha: '1.8.1',
+38 silly resolved        should: '1.2.2',
+38 silly resolved        jake: '0.5.9',
+38 silly resolved        jshint: '1.1.0' },
+38 silly resolved     contributors: [ [Object], [Object], [Object] ],
+38 silly resolved     readme: '# prettyjson [![Build Status](https://secure.travis-ci.org/rafeca/prettyjson.png)](http://travis-ci.org/rafeca/prettyjson)\n\nPackage for formatting JSON data in a coloured YAML-style, perfect for CLI output\n\n## How to install\n\nJust install it via NPM:\n\n```bash\n$ npm install prettyjson\n```\n\n## Using it (from the CLI)\n\nThis package installs a command line interface to render JSON data in a more convenient way. You can use the CLI\nin three different ways:\n\n**Decode a JSON file:** If you want to see the contents of a JSON file, just pass it as the first argument to the CLI:\n\n```bash\n$ prettyjson package.json\n```\n\n![Example 1](http://rafeca.com/prettyjson/images/example3.png)\n\n**Decode the stdin:** You can also pipe the result of a command (for example an HTTP request) to the CLI to see\nthe JSON result in a clearer way:\n\n```bash\n$ curl https://api.github.com/users/rafeca | prettyjson\n```\n\n![Example 2](http://rafeca.com/prettyjson/images/example4.png)\n\n**Decode random strings:** if you call the CLI with no arguments, you\'ll get a prompt where you can past JSON strings\nand they\'ll be automatically displayed in a clearer way:\n\n![Example 3](http://rafeca.com/prettyjson/images/example5.png)\n\nIf you install the package globally (with `npm install -g prettyjson`), the CLI will be installed automatically in your PATH\nthanks to npm.\n\n### Customizing colors via command line\n\nNow it\'s possible to customize the colors of the output via environment variables, thanks to @bahamas10:\n\n```bash\n$ PRETTYJSON_KEYS=red PRETTYJSON_DASH=blue PRETTYJSON_STRING=yellow prettyjson package.json\n```\n\nThe available options are `PRETTYJSON_KEYS`, `PRETTYJSON_DASH`, `PRETTYJSON_STRING` and `PRETTYJSON_INDENT`.\n\n## Using it (from Node.js)\n\nIt\'s pretty easy to use it... you just have to include it in your script and call the `render()` method:\n\n```javascript\nvar prettyjson = require(\'prettyjson\');\n\nvar data = {\n  username: \'rafeca\',\n  url: \'https://github.com/rafeca\',\n  twitter_account: \'https://twitter.com/rafeca\',\n  projects: [\'prettyprint\', \'connfu\']\n};\n\nconsole.log(prettyjson.render(data));\n```\n\nAnd will output:\n\n![Example 4](http://rafeca.com/prettyjson/images/example1.png)\n\nYou can also configure the colors of the hash keys and array dashes\n(using [colors.js](https://github.com/Marak/colors.js) colors syntax):\n\n```javascript\nvar prettyjson = require(\'prettyjson\');\n\nvar data = {\n  username: \'rafeca\',\n  url: \'https://github.com/rafeca\',\n  twitter_account: \'https://twitter.com/rafeca\',\n  projects: [\'prettyprint\', \'connfu\']\n};\n\nconsole.log(prettyjson.render(data, {\n  keysColor: \'rainbow\',\n  dashColor: \'magenta\',\n  stringColor: \'white\'\n}));\n```\n\nWill output something like:\n\n![Example 5](http://rafeca.com/prettyjson/images/example2.png)\n\n## Annotated source\n\nYou can check the [annotated source](http://rafeca.com/prettyjson/prettyjson.html) for more information about how it works\n\n## Running Tests\n\nTo run the test suite first invoke the following command within the repo, installing the development dependencies:\n\n```bash\n$ npm install --dev\n```\n\nthen run the tests:\n\n```bash\n$ npm test\n```\n\nYou can check the package\'s [test coverage](http://rafeca.com/prettyjson/coverage.html) if you are one of those test paranoics',
+38 silly resolved     readmeFilename: 'README.md',
+38 silly resolved     _id: 'prettyjson@0.8.1',
+38 silly resolved     _from: 'prettyjson@' } ]
+39 info install prettyjson@0.8.1 into /usr/local/lib
+40 info installOne prettyjson@0.8.1
+41 verbose from cache /Users/idanwe/.npm/prettyjson/0.8.1/package/package.json
+42 info /usr/local/lib/node_modules/prettyjson unbuild
+43 verbose read json /usr/local/lib/node_modules/prettyjson/package.json
+44 verbose tar unpack /Users/idanwe/.npm/prettyjson/0.8.1/package.tgz
+45 silly lockFile d26a987d-ocal-lib-node-modules-prettyjson /usr/local/lib/node_modules/prettyjson
+46 verbose lock /usr/local/lib/node_modules/prettyjson /Users/idanwe/.npm/d26a987d-ocal-lib-node-modules-prettyjson.lock
+47 silly lockFile 8fcd2649-npm-prettyjson-0-8-1-package-tgz /Users/idanwe/.npm/prettyjson/0.8.1/package.tgz
+48 verbose lock /Users/idanwe/.npm/prettyjson/0.8.1/package.tgz /Users/idanwe/.npm/8fcd2649-npm-prettyjson-0-8-1-package-tgz.lock
+49 silly gunzTarPerm modes [ '755', '644' ]
+50 error Error: EACCES, mkdir '/usr/local/lib/node_modules/prettyjson'
+50 error  { [Error: EACCES, mkdir '/usr/local/lib/node_modules/prettyjson']
+50 error   errno: 3,
+50 error   code: 'EACCES',
+50 error   path: '/usr/local/lib/node_modules/prettyjson',
+50 error   fstream_type: 'Directory',
+50 error   fstream_path: '/usr/local/lib/node_modules/prettyjson',
+50 error   fstream_class: 'DirWriter',
+50 error   fstream_stack:
+50 error    [ '/usr/local/lib/node_modules/npm/node_modules/fstream/lib/dir-writer.js:36:23',
+50 error      '/usr/local/lib/node_modules/npm/node_modules/mkdirp/index.js:37:53',
+50 error      'Object.oncomplete (fs.js:93:15)' ] }
+51 error Please try running this command again as root/Administrator.
+52 error System Darwin 12.4.0
+53 error command "node" "/usr/local/bin/npm" "install" "prettyjson" "-g"
+54 error cwd /Users/idanwe/Desktop/Programing/mini-site
+55 error node -v v0.10.0
+56 error npm -v 1.2.14
+57 error path /usr/local/lib/node_modules/prettyjson
+58 error fstream_path /usr/local/lib/node_modules/prettyjson
+59 error fstream_type Directory
+60 error fstream_class DirWriter
+61 error code EACCES
+62 error errno 3
+63 error stack Error: EACCES, mkdir '/usr/local/lib/node_modules/prettyjson'
+64 error fstream_stack /usr/local/lib/node_modules/npm/node_modules/fstream/lib/dir-writer.js:36:23
+64 error fstream_stack /usr/local/lib/node_modules/npm/node_modules/mkdirp/index.js:37:53
+64 error fstream_stack Object.oncomplete (fs.js:93:15)
+65 verbose exit [ 3, true ]
